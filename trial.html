@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Device Info</title>
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.38/src/ua-parser.min.js"></script>
+</head>
+
+<body>
+    <h1>Device Info in Details</h1>
+    <div id="device-info"></div>
+
+    <script>
+        const parser = new UAParser();
+        const result = parser.setUA(navigator.userAgent).getResult();
+
+        const deviceInfo = `
+      <p>OS: ${result.os.name} ${result.os.version}</p>
+      <p>Device Manufacturer: ${result.device.vendor}</p>
+      <p>Device Model: ${result.device.model}</p>
+    `;
+
+        document.getElementById("device-info").innerHTML = deviceInfo;
+    </script>
+</body>
+
+</html>
